@@ -37,9 +37,25 @@ jobs:
           push: true
           tags: |
             yousiki/frp:latest
+            yousiki/frp:amd64
           file: Dockerfile
           context: .
           platforms: linux/amd64
+          build-args: |
+            FRP_PLATFORM=linux_amd64
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
+      - name: Build image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: |
+            yousiki/frp:arm64
+          file: Dockerfile
+          context: .
+          platforms: linux/arm64
+          build-args: |
+            FRP_PLATFORM=linux_arm64
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
       - name: Move cache

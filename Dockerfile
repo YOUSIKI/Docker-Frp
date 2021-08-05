@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ARG FRP_VERSION=0.37.0
+ARG FRP_VERSION=0.37.1
 ARG FRP_PLATFORM=linux_amd64
 ARG FRP_DOWNLOAD=https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_${FRP_PLATFORM}.tar.gz
 
